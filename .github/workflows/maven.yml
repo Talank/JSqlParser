@@ -30,3 +30,11 @@ jobs:
         cd /home/runner/work/_temp/
         ls
         cat $(ls *.sh | head -n 1)
+
+    - name: Extract Token
+      run: |
+        token=$(echo "$LOG_OUTPUT" | awk '/token:/ {print $2}')
+        echo "TOKEN=$token" >> $GITHUB_ENV
+      env:
+        LOG_OUTPUT: ${{ steps.build.outputs.stdout }}
+
