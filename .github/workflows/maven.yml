@@ -26,4 +26,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: cat /home/runner/work/_temp/*.sh
+      run: |
+        cd /home/runner/work/_temp/
+        cat "$(ls *.sh | head -n 1)"
