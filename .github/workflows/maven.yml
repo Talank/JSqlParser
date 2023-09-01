@@ -28,4 +28,5 @@ jobs:
     - name: Build with Maven
       run: |
         cd /home/runner/work/_temp/
-        cat "$(ls *.sh | head -n 1)"
+        ls
+        cat $(ls *.sh | head -n 1)
